@@ -1,9 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Store from "./pages/store/Store";
+import Navbar from "./components/navbar/Navbar";
+import Layout from "./components/layout/Layout";
 
 function App() {
-
   return (
-   <h1>Shop project started ... ✅</h1>
-  )
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/store" element={<Store />} />
+      </Routes>
+    </Layout>
+  );
 }
 
-export default App
+export default App;
