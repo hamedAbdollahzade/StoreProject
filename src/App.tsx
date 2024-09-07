@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Store from "./pages/store/Store";
-import Navbar from "./components/navbar/Navbar";
 import Layout from "./components/layout/Layout";
 
 function App() {
