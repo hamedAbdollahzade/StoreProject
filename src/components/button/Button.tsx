@@ -6,7 +6,7 @@ type TButton = ComponentProps<"button"> & {
   variant?: TVariant;
 };
 
-const checkVariant = (variant: TVariant) => {
+const checkVariant = (variant?: TVariant) => {
   if (variant === "danger") {
     return { backgroundColor: "red", color: "white" };
   } else if (variant === "primary") {
