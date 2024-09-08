@@ -20,9 +20,14 @@ const checkVariant = (variant?: TVariant) => {
   }
 };
 
-const Button = ({ children, variant, style, ...rest }: TButton) => {
+const Button = ({ children, variant, className, style, ...rest }: TButton) => {
+  const defaultClass = "p-1 rounded m-1";
   return (
-    <button {...rest} style={{ ...style, ...checkVariant(variant) }}>
+    <button
+      className={`${defaultClass} ${className}`}
+      {...rest}
+      style={{ ...style, ...checkVariant(variant) }}
+    >
       {children}
     </button>
   );
