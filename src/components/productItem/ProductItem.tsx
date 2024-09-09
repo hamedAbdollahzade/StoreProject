@@ -1,29 +1,17 @@
-const ProductItem = () => {
+import { IProduct } from "../../types/server";
+
+type TProductItem = IProduct;
+
+const ProductItem = ({ description, image, price, title }: TProductItem) => {
   return (
     <div className="shadow border rounded pb-4">
-      <img
-        className="rounded-t w-full"
-        src="https://picsum.photos/id/237/200/300"
-        alt="pic"
-      />
+      <img className="rounded-t w-full" src={image} alt="pic" />
       <div className="flex justify-between px-2 mt-4">
-        <span>55$</span>
-        <h3>عنوان محصول </h3>
+        <h3> {title} </h3>
+        <span>{price}$</span>
       </div>
       <div>
-        <p className="px-2 line-clamp-3 text-right">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-          استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-          ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-          کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی
-          در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می
-          طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-          الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این
-          صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و
-          شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
-          اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده
-          قرار گیرد.
-        </p>
+        <p className="px-2 line-clamp-3 text-right">{description}</p>
       </div>
     </div>
   );
