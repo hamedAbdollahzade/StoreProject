@@ -10,12 +10,9 @@ const Cart = () => {
       <Container>
         <h1>سبد خرید شما</h1>
         <div>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartItems.map((items) => (
+            <CartItem key={items.id} {...items} />
+          ))}
         </div>
         <div>
           <p>مجموع خرید شما : 2000 تومان</p>
