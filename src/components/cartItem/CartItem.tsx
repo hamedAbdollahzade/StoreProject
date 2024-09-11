@@ -3,6 +3,7 @@ import { getProduct } from "../../services/api";
 import Button from "../button/Button";
 import { IProduct } from "../../types/server";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { Link } from "react-router-dom";
 interface ICartItem {
   id: number;
   qty: number;
@@ -22,9 +23,9 @@ const CartItem = ({ id, qty }: ICartItem) => {
 
   return (
     <div className="flex m-4 border-b pb-2">
-      <div>
+      <Link to={`/product/${id}`}>
         <img className="w-20" src={product?.image} alt="" />
-      </div>
+      </Link>
       <div className="flex-1 pl-4 ">
         <h3>{product?.title}</h3>
         <p>Price: ${product?.price}</p>
