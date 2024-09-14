@@ -1,3 +1,4 @@
+import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 
 interface ILayout {
@@ -9,6 +10,7 @@ const Layout = ({ children }: ILayout) => {
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 };
