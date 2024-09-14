@@ -26,20 +26,9 @@ const Product = () => {
   return (
     <div>
       <Container>
-        <div className=" shadow  mt-4 grid grid-cols-12  ">
-          <div className=" col-span-10 text-right p-4">
-            <h1>{product.title} </h1>
-            <div>
-              <div>
-                <p>{product.description}</p>
-                <p> {product.price}$ </p>
-              </div>
-            </div>
-            <h1>ایدی محصول :{product.id}</h1>
-          </div>
-
-          <div className=" col-span-2 p-4 bg-sky-200">
-            <img className=" rounded" src={product.image} alt="img" />
+        <div className=" shadow my-10  grid grid-cols-12 ">
+          <div className=" col-span-2  p-4 bg-sky-200 flex flex-col justify-center items-center gap-3">
+            <img className=" rounded  object-contain" src={product.image} alt="img" />
             {getProductQty(parseInt(params.id as string)) == 0 ? (
               <>
                 <Button
@@ -49,7 +38,7 @@ const Product = () => {
                   style={{ padding: "2px 6px" }}
                   variant="success"
                 >
-                  add to cart
+                  افزودن  به سبد خرید
                 </Button>
               </>
             ) : (
@@ -83,10 +72,21 @@ const Product = () => {
                   style={{ padding: "2px 6px" }}
                   variant="danger"
                 >
-                  Remove from cart
+                  حذف کامل از سبد خرید
                 </Button>
               </>
             )}
+          </div>
+
+          <div className=" col-span-10 text-right p-4">
+            <h1>{product.title} </h1>
+            <div>
+              <div>
+                <p>{product.description}</p>
+                <p> {product.price}$ </p>
+              </div>
+            </div>
+            <h1>ایدی محصول :{product.id}</h1>
           </div>
         </div>
       </Container>

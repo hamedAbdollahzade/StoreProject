@@ -17,34 +17,37 @@ const Login = () => {
   return (
     <div>
       <Container>
-        <div className="bg-slate-400 flex flex-col gap-5 p-12  justify-center items-center m-10">
-          <h1>Login Form</h1>
+        <div className="bg-gray-200 flex flex-col gap-5 p-12  justify-center items-center m-20">
+          <h1 className="text-3xl my-5"> ورود به حساب کاربری</h1>
           <div>
             <input
+            className="p-3 outline-none"
               onChange={hadleChange}
               type="text"
-              placeholder="USER NAME"
+              placeholder="نام خود را وارد کنید"
               name="username"
               value={user.username}
             />
           </div>
           <div>
             <input
+            className="p-3 outline-none"
               onChange={hadleChange}
               type="password"
-              placeholder="PASSWORD"
+              placeholder="پسورد خود را وارد کنید"
               name="password"
               value={user.password}
             />
           </div>
           <div>
             <button
-              className="bg-slate-600 px-4 py-1 rounded text-white  "
+
+              className="bg-gray-500  p-4 flex justify-center items-center rounded text-white  "
               onClick={() => {
                 handleLogin(user.username, user.password);
               }}
             >
-              Login{" "}
+              ورود
             </button>
           </div>
         </div>

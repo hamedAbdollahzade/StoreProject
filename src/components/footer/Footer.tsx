@@ -53,7 +53,6 @@ const Footer = () => {
           <a href="">لینک کاربردی </a>
           <a href="">لینک کاربردی </a>
           <a href="">لینک کاربردی </a>
-        
         </div>
         <div className="flex flex-col justify-center items-center gap-5">
           <h1 className="font-bold text-3xl text-black mb-10">

@@ -37,7 +37,7 @@ const CartItem = ({ id, qty }: ICartItem) => {
           -
         </Button>
         <Button onClick={() => hendleRemoveProduct(id)} variant="danger">
-          Remove
+          حذف   
         </Button>
       </div>
     </div>
