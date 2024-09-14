@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { Login } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 interface IShoppingCartProvider {
   children: React.ReactNode;
@@ -17,7 +19,7 @@ interface IShoppingCartContext {
   hendleRemoveProduct: (id: number) => void;
   totalQty: number;
   isLogin: boolean;
-  handleLogin: () => void;
+  handleLogin: (username: string, password: string) => void;
   handleLogOut: () => void;
 }
 
@@ -54,6 +56,7 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
   // --------------------------------------------------------------
   const handleDecreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
+      // eslint-disable-next-line prefer-const
       let selectedItem = currentItems.find((item) => item.id == id);
 
       if (selectedItem?.qty === 1) {
@@ -81,15 +84,31 @@ export function ShoppingCartProvider({ children }: IShoppingCartProvider) {
   const totalQty = cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
   // -------------------------------------------------------------------------
   const [isLogin, setIsLogin] = useState(false);
-  const handleLogin = () => {
-    setIsLogin(true);
-    // Simulate login logic
-    //...
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // eslint-disable-next-line prefer-const
+    let token = localStorage.getItem("token");
+    if (token) {
+      setIsLogin(true);
+      navigate("/");
+    }
+  }, []);
+
+  const handleLogin = (username: string, password: string) => {
+    Login(username, password).finally(() => {
+      // eslint-disable-next-line prefer-const
+      let token = "AjaghVagaghToken2024";
+      localStorage.setItem("token", token);
+      setIsLogin(true);
+      navigate("/cart");
+    });
   };
+
   const handleLogOut = () => {
     setIsLogin(false);
-    // Simulate logout logic
-    //...
+    navigate("/login");
+    localStorage.removeItem("token");
   };
 
   return (
